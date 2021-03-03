@@ -19,16 +19,18 @@ public class SkyRotation : MonoBehaviour
 	        float timeF = (24 * 60 * 60);
 	        float timeO = 360f;
 	        float timeOffset = timeO / timeF;
-	        
-	        var timeLapse = DateTime.Now.Hour * 60 * 60 + DateTime.Now.Minute * 60 + 
-	        DateTime.Now.Second;
+
+	        var dateTime = DateTime.Now;
+	        dateTime = dateTime.AddHours(hourOffset);
+
+	        var timeLapse = dateTime.Hour * 60 * 60 + dateTime.Minute * 60 + 
+	        dateTime.Second;
 
 	        gameObj.transform.eulerAngles = new Vector3(
 	            gameObj.transform.eulerAngles.x,
 	            gameObj.transform.eulerAngles.y,
 	            timeLapse * timeOffset
 	        );
-
         }
 	}
 
